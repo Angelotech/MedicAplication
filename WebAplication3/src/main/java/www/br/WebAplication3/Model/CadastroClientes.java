@@ -18,7 +18,7 @@ public class CadastroClientes implements Serializable{
     private String nome;
     @Column(nullable = false, length = 200)
     private String DateNasc;
-    @Column(nullable = false,unique = true ,length = 100)
+    @Column(unique = true ,length = 100, nullable = false)
     private String Cpf;
     @Column(nullable = false, unique = true, length = 50)
     private String RG;

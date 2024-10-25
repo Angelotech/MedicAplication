@@ -7,6 +7,7 @@ import jakarta.persistence.ManyToOne;
 import java.util.Objects;
 
 public class Cobertura {
+
     private String prcedimento;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)

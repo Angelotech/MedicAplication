@@ -16,15 +16,13 @@ public class FichaDeAtendimento implements Serializable{
     private Integer Id;
 
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @Column(nullable = false)
     private CadastroClientes paciente;
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @Column(nullable = false)
     private CadastroDR medicos;
 
     @Column(nullable = false)
     private CadastroPlanoDeSaude planoDeSaude;
-    @Column(nullable = false)
+	@Column(nullable = false)
     private String procedimentos;
 
     @Column(nullable = false)

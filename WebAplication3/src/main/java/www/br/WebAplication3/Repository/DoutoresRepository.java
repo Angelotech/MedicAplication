@@ -8,13 +8,13 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface DoutoresRepository extends JpaRepository<CadastroDR, Integer>{
 
-    @Query(value = "SELECT c FROM CadastroDR c WHERE upper(trim.(c.CRM)) like %1%")
-    List<CadastroDR> buscacrm(String crm);
+    @Query(value = "SELECT c FROM CadastroDR c WHERE upper(trim(c.CRM)) LIKE %?1%")
+    List<CadastroDR> buscarporcrm(String CRM);
 
-    @Query (value = "SELECT e FROM CadastroDR e WHERE upper(trim.(e.especialidade)) like %1%")
+    @Query(value = "SELECT n FROM CadastroDR n WHERE upper(trim(n.nome)) LIKE %?1%")
+    List<CadastroDR> buscapornome(String nome);
+
+    @Query(value = "SELECT e FROM CadastroDR e WHERE upper(trim(e.especialidade)) LIKE %?1%")
     List<CadastroDR> buscaporesp(String especialidade);
-
-    @Query(value = "SELECT n FROM CadastroDR n WHERE upper(trim.(n.nome)) like %1%")
-    List<CadastroDR> buscapornom(String nome);
 
 }

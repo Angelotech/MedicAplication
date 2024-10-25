@@ -7,13 +7,13 @@ import org.springframework.data.jpa.repository.Query;
 import www.br.WebAplication3.Model.CadastroUsuario;
 
 public interface UsuarioRepository extends JpaRepository<CadastroUsuario,Integer> {
-    @Query(value = "SELECT u FROM CadastroUsuario u WHERE upper(trim(u.nome)) like %1%")
-    List<CadastroUsuario> buscapornome(String name);
+    @Query(value = "SELECT u FROM CadastroUsuario u WHERE upper(trim(u.nome)) LIKE %?1%")
+    List<CadastroUsuario> buscapornome(String nome);
 
-    @Query(value = "SELECT c FROM CadastroUsuario c WHERE upper(trim.(c.cargo)) like %1%")
+    @Query(value = "SELECT c FROM CadastroUsuario c WHERE upper(trim(c.Cargo)) LIKE %?1%")
     List<CadastroUsuario> buscaporcargo( String Cargo);
 
-    @Query(value = "SELECT m FROM CadastroUsuario m WHERE upper(trim.(m.matricula)) like %1%")
+    @Query(value = "SELECT m FROM CadastroUsuario m WHERE upper(trim(m.matricula)) LIKE %?1%")
     List<CadastroUsuario> buscapormatricula( String matricula);
 }
 

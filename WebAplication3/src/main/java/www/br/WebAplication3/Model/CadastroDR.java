@@ -16,7 +16,7 @@ public class CadastroDR extends CadastroUsuario implements Serializable {
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private CadastroUsuario usuario;
-    @Column(nullable = false, length = 100, unique = true)
+    @Column(nullable = true, length = 100, unique = true)
     private String CRM;
     @Column(nullable = false, length = 50)
     private String especialidade;
