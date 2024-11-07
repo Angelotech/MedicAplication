@@ -3,9 +3,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import www.br.WebAplication3.Model.CadastroUsuario;
 import java.util.List;
 import org.springframework.data.jpa.repository.Query;
-
+import org.springframework.stereotype.Repository;
 import www.br.WebAplication3.Model.CadastroUsuario;
 
+@Repository
 public interface UsuarioRepository extends JpaRepository<CadastroUsuario,Integer> {
     @Query(value = "SELECT u FROM CadastroUsuario u WHERE upper(trim(u.nome)) LIKE %?1%")
     List<CadastroUsuario> buscapornome(String nome);
