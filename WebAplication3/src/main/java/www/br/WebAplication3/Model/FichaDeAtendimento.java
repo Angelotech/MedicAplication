@@ -11,7 +11,9 @@ import java.util.Objects;
 @Table(name = "ficha_de_atendimento")
 @SequenceGenerator(name = "ficha_de_atendimento", sequenceName = "Seq_ficha", initialValue = 1, allocationSize = 1)
 public class FichaDeAtendimento implements Serializable{
-    @Id
+
+
+	@Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer Id;
 

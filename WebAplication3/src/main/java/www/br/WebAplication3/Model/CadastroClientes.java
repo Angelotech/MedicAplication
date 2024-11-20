@@ -39,7 +39,7 @@ public class CadastroClientes implements Serializable{
 		this.PlSaude = PlSaude;
 	}
 
-	private Integer getId() {
+	public Integer getId() {
 		return id;
 	}
 	public void setId(Integer id) {
@@ -94,25 +94,7 @@ public class CadastroClientes implements Serializable{
 	public void setSexo(String sexo) {
 		Sexo = sexo;
 	}
-	@Override
-	public int hashCode() {
-		return Objects.hash(Cpf, DateNasc, Email, Endereco, NumTelefone, RG, Sexo, id, nome);
-	}
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		CadastroClientes other = (CadastroClientes) obj;
-		return Objects.equals(Cpf, other.Cpf) && Objects.equals(DateNasc, other.DateNasc)
-				&& Objects.equals(Email, other.Email) && Objects.equals(Endereco, other.Endereco)
-				&& Objects.equals(NumTelefone, other.NumTelefone) && Objects.equals(RG, other.RG)
-				&& Objects.equals(Sexo, other.Sexo) && Objects.equals(id, other.id) && Objects.equals(nome, other.nome);
-	}
-
+	
 
 
     

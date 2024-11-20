@@ -16,9 +16,9 @@ public interface ClientesRepository extends JpaRepository<CadastroClientes, Inte
     List<CadastroClientes> buscacliente(String nome);
 
     @Query(value = "SELECT c FROM CadastroClientes c WHERE upper(trim(c.Cpf)) LIKE %?1%")
-    List<CadastroClientes> findByCpf(String Cpf);
+    List<CadastroClientes> buscaCpf(String Cpf);
 
-
+    
 
 
 

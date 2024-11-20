@@ -1,4 +1,4 @@
-package www.br.WebAplication3.controlles;
+/**  package www.br.WebAplication3.controlles;//
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,7 +11,7 @@ import www.br.WebAplication3.Model.CadastroUsuario;
 /**
  *
  * A sample greetings controller to return greeting text
- */
+
 @RestController
 public class GreetingsController {
     /**
@@ -19,13 +19,14 @@ public class GreetingsController {
      * @param name the name to greet
      * @return greeting text
      */
-    @RequestMapping(value = "/{name}", method = RequestMethod.GET)
-    @ResponseStatus(HttpStatus.OK)
-    public String greetingText(@PathVariable String name) {
+    //@RequestMapping(value = "/{name}", method = RequestMethod.GET)
+    //@ResponseStatus(HttpStatus.OK)
+  //  public String greetingText(@PathVariable String name) {
 
 
-        return "Hello " + name + "!";
+//        return "Hello " + name + "!";
 
 
-    }
-}
+//    }
+//}
+//

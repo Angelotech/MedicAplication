@@ -14,13 +14,14 @@ import org.springframework.data.repository.query.Param;
 public interface FichaAtendimentoRepository extends JpaRepository<FichaDeAtendimento,Integer>{
 
     @Query(value = "SELECT n FROM FichaDeAtendimento n WHERE upper(trim(n.procedimentos)) LIKE %?1%")
-    List<FichaDeAtendimento> buscaprocedimento(String procedimento);
+    List<FichaDeAtendimento> buscarprocedimento(String procedimentos);
 
     @Query(value = "SELECT f FROM FichaDeAtendimento f WHERE upper(trim(f.paciente.nome)) LIKE %?1%")
-    List<FichaDeAtendimento> nomenaficha(String nome);
+    List<FichaDeAtendimento> bucarnome(String nome);
+    
+    
 
-    @Query(value = "SELECT c FROM CadastroDR c WHERE upper(trim(c.CRM)) LIKE %?1%")
-   List<CadastroDR> buscarporcrm(String CRM);
+    
 
 
 
