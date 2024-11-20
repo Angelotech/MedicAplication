@@ -16,6 +16,10 @@ public interface UsuarioRepository extends JpaRepository<CadastroUsuario,Integer
 
     @Query(value = "SELECT m FROM CadastroUsuario m WHERE upper(trim(m.matricula)) LIKE %?1%")
     List<CadastroUsuario> buscapormatricula( String matricula);
+    
+    
+    
+    
 }
 
 

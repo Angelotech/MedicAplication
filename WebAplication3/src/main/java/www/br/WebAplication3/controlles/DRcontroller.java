@@ -34,15 +34,15 @@ public class DRcontroller {
         return new ResponseEntity<CadastroDR>(cadastrodr,HttpStatus.OK);
     }
 
-    @GetMapping(value = "buscapornome")
+    @GetMapping(value = "/buscapornome")
     @ResponseBody
     public ResponseEntity<List<CadastroDR>> buscapornome(@RequestParam(name = "name")String name){
         List<CadastroDR> doutores = doutoresRepository.buscapornome(name.trim().toUpperCase());
         return new ResponseEntity<List<CadastroDR>>(doutores,HttpStatus.OK);
     }  
-    @PutMapping(value = "atualizar")
+    @PutMapping(value = "/atualizar")
     @ResponseBody
-    public ResponseEntity<?> atualizar (@RequestB ody CadastroDR cadastroDR){
+    public ResponseEntity<?> atualizar (@RequestBody CadastroDR cadastroDR){
         if(cadastroDR.getId()<= 0) {
             return new ResponseEntity<String>("valor de id invalido", HttpStatus.OK);
 

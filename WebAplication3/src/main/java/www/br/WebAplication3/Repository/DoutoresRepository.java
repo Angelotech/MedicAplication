@@ -16,5 +16,7 @@ public interface DoutoresRepository extends JpaRepository<CadastroDR, Integer>{
 
     @Query(value = "SELECT e FROM CadastroDR e WHERE upper(trim(e.especialidade)) LIKE %?1%")
     List<CadastroDR> buscaporesp(String especialidade);
+    
+    
 
 }
