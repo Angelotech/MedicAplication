@@ -9,15 +9,18 @@ import java.util.Objects;
 @Entity
 @SequenceGenerator(name = "seq_DR", sequenceName = "seq_DR", allocationSize = 1, initialValue = 1)
 public class CadastroDR extends CadastroUsuario implements Serializable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+
+	private static final long serialVersionUID = 1L;
+
+	@Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seq_DR")
     @Column(unique = true)
     private Integer id;
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private CadastroUsuario usuario;
     @Column(nullable = true, length = 100, unique = true)
-    private String CRM;
+    private Character CRM;
     @Column(nullable = false, length = 50)
     private String especialidade;
 
@@ -33,10 +36,10 @@ public class CadastroDR extends CadastroUsuario implements Serializable {
 	public void setUsuario(CadastroUsuario usuario) {
 		this.usuario = usuario;
 	}
-	public String getCRM() {
+	public Character getCRM() {
 		return CRM;
 	}
-	public void setCRM(String cRM) {
+	public void setCRM(Character cRM) {
 		CRM = cRM;
 	}
 	public String getEspecialidade() {

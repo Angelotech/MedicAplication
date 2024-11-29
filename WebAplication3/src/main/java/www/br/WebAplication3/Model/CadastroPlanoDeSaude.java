@@ -9,8 +9,11 @@ import java.util.Objects;
 @Entity(name = "plano_de_saude")
 @SequenceGenerator(name = "Seq_PLsaude", sequenceName = "Seq_PLsaude", initialValue = 1, allocationSize = 1)
 public class CadastroPlanoDeSaude extends CadastroClientes implements Serializable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    
+	private static final long serialVersionUID = 1L;
+
+	@Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Seq_PLsaude")
     @Column(unique = true)
     private Integer id;
 

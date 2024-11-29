@@ -3,6 +3,8 @@ package www.br.WebAplication3.Model;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 
@@ -12,9 +14,10 @@ import java.util.Objects;
 @SequenceGenerator(name = "ficha_de_atendimento", sequenceName = "Seq_ficha", initialValue = 1, allocationSize = 1)
 public class FichaDeAtendimento implements Serializable{
 
+	private static final long serialVersionUID = 1L;
 
 	@Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ficha_de_atendimento")
     private Integer Id;
 
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
@@ -28,7 +31,8 @@ public class FichaDeAtendimento implements Serializable{
     private String procedimentos;
 
     @Column(nullable = false)
-    private String hora_atendimento;
+    private Timestamp horaAtendimento;
+    
 
 	public Integer getId() {
 		return Id;
@@ -70,34 +74,19 @@ public class FichaDeAtendimento implements Serializable{
 		this.procedimentos = procedimentos;
 	}
 
-	public String getHora_atendimento() {
-		return hora_atendimento;
+	public Timestamp getHoraAtendimento() {
+		return horaAtendimento;
 	}
 
-	public void setHora_atendimento(String hora_atendimento) {
-		this.hora_atendimento = hora_atendimento;
+	public void setHoraAtendimento(Timestamp horaAtendimento) {
+		this.horaAtendimento = horaAtendimento;
 	}
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(Id, hora_atendimento, medicos, paciente, planoDeSaude, procedimentos);
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		FichaDeAtendimento other = (FichaDeAtendimento) obj;
-		return Objects.equals(Id, other.Id) && Objects.equals(hora_atendimento, other.hora_atendimento)
-				&& Objects.equals(medicos, other.medicos) && Objects.equals(paciente, other.paciente)
-				&& Objects.equals(planoDeSaude, other.planoDeSaude)
-				&& Objects.equals(procedimentos, other.procedimentos);
-	}
-    
+	
     
 
 }

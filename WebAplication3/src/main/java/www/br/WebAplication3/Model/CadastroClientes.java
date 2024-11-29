@@ -1,99 +1,116 @@
 package www.br.WebAplication3.Model;
-
-
 import jakarta.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.Objects;
-
 
 @Entity
 @Table(name = "CadastroClientes")
 @SequenceGenerator(name = "Seq_Clientes", sequenceName = "Seq_Cliente", allocationSize = 1, initialValue = 1)
 public class CadastroClientes implements Serializable{
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+
+	private static final long serialVersionUID = 1L;
+	@Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Seq_Clientes")
     @Column(unique = true, nullable = false)
     private Integer id;
-    @Column(nullable = false, length = 500)
-    private String nome;
+    @Column(nullable = false, length = 500 , unique = true)
+    private String clienteNome;
     @Column(nullable = false, length = 200)
-    private String DateNasc;
+    private Date dataNascimento;
     @Column(unique = true ,length = 100, nullable = false)
-    private String Cpf;
+    private String cpf;
     @Column(nullable = false, unique = true, length = 50)
-    private String RG;
+    private String Rg;
     @Column(nullable = false,length = 500)
-    private String Endereco;
+    private String endereco;
+    @Column(nullable = false,length = 500)
+    private String cidade;
+    @Column(nullable = false,length = 500)
+    private Character estado;
     @Column(nullable = false, length = 50)
-    private String NumTelefone;
-    @Column(nullable = false, length = 100)
-    private String Email;
+    private Character numeroTelefone;
+    @Column(unique = true, nullable  = false, length = 100)
+    private Character Email;
     @Column(nullable = true, length = 20)
-    private String Sexo;
+    private Character Sexo;
 	private Boolean PlSaude;
-
-	public Boolean getPlSaude() {
-		return PlSaude ;
-	}
-	public void setPlSaude(Boolean PlSaude) {
-		this.PlSaude = PlSaude;
-	}
-
 	public Integer getId() {
 		return id;
 	}
 	public void setId(Integer id) {
 		this.id = id;
 	}
-
-	public String getNome() {
-		return nome;
+	public String getClienteNome() {
+		return clienteNome;
 	}
-	public void setNome(String nome){
-		this.nome = nome;
+	public void setClienteNome(String clienteNome) {
+		this.clienteNome = clienteNome;
 	}
-	public String getDateNasc() {
-		return DateNasc;
+	public Date getDataNascimento() {
+		return dataNascimento;
 	}
-	public void setDateNasc(String dateNasc) {
-		DateNasc = dateNasc;
+	public void setDataNascimento(Date dataNascimento) {
+		this.dataNascimento = dataNascimento;
 	}
 	public String getCpf() {
-		return Cpf;
+		return cpf;
 	}
 	public void setCpf(String cpf) {
-		Cpf = cpf;
+		this.cpf = cpf;
 	}
-	public String getRG() {
-		return RG;
+	public String getRg() {
+		return Rg;
 	}
-	public void setRG(String rG) {
-		RG = rG;
+	public void setRg(String rg) {
+		Rg = rg;
 	}
 	public String getEndereco() {
-		return Endereco;
+		return endereco;
 	}
 	public void setEndereco(String endereco) {
-		Endereco = endereco;
+		this.endereco = endereco;
 	}
-	public String getNumTelefone() {
-		return NumTelefone;
+	public String getCidade() {
+		return cidade;
 	}
-	public void setNumTelefone(String numTelefone) {
-		NumTelefone = numTelefone;
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
 	}
-	public String getEmail() {
+	public Character getEstado() {
+		return estado;
+	}
+	public void setEstado(Character estado) {
+		this.estado = estado;
+	}
+	public Character getNumeroTelefone() {
+		return numeroTelefone;
+	}
+	public void setNumeroTelefone(Character numeroTelefone) {
+		this.numeroTelefone = numeroTelefone;
+	}
+	public Character getEmail() {
 		return Email;
 	}
-	public void setEmail(String email) {
+	public void setEmail(Character email) {
 		Email = email;
 	}
-	public String getSexo() {
+	public Character getSexo() {
 		return Sexo;
 	}
-	public void setSexo(String sexo) {
+	public void setSexo(Character sexo) {
 		Sexo = sexo;
 	}
+	public Boolean getPlSaude() {
+		return PlSaude;
+	}
+	public void setPlSaude(Boolean plSaude) {
+		PlSaude = plSaude;
+	}
+	
+	
+
+	
 	
 
 

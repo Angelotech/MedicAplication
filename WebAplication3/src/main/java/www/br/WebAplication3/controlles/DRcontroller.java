@@ -26,6 +26,13 @@ public class DRcontroller {
         CadastroDR cadDR = doutoresRepository.save(cadastroDR);
         return new ResponseEntity<CadastroDR>(cadDR,HttpStatus.CREATED);
     }
+    
+    @GetMapping(value = "/listaDoutores")
+    @ResponseBody
+    public ResponseEntity<List<CadastroDR>> listacliente(){
+    	List<CadastroDR> clientes = doutoresRepository.findAll();
+    	return new ResponseEntity<List<CadastroDR>>(clientes,HttpStatus.OK);
+    }
 
     @GetMapping(value = "/buscaDRid")
     @ResponseBody

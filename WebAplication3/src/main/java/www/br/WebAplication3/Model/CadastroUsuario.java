@@ -10,8 +10,11 @@ import jakarta.persistence.*;
 @Table(name = "Cadastro_usuario")
 @SequenceGenerator(name = "Seq_Usuario", sequenceName = "Usuario", allocationSize = 1, initialValue = 1)
 public  class CadastroUsuario implements Serializable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    
+	private static final long serialVersionUID = 1L;
+
+	@Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Seq_Usuario")
     private Integer id;
 
     @Column(nullable = false,length = 100,unique = true)
@@ -22,23 +25,26 @@ public  class CadastroUsuario implements Serializable {
     @Column(nullable = false,length = 100, unique = true)
     private String nome;
     @Column(nullable = false,length = 100)
-    private String email;
+    private Character email;
     @Column(nullable = false,length = 40)
     private String setor;
     @Column(nullable = false,length = 100, unique = true)
-    private String matricula;
+    private Character matricula;
     @Column(nullable = false)
     private Boolean acesso;
     @Column(nullable = false,length = 50, unique = true)
     private String Cpf;
     @Column(nullable = false,length = 50, unique = true)
     private String RG;
-    @Column(nullable = false,length = 100)
-    private String Residencia;
+    @Column(nullable = false,length = 500)
+    private String endereco;
+    @Column(nullable = false,length = 500)
+    private String cidade;
+    @Column(nullable = false,length = 500)
+    private Character estado;
     @Column(nullable = false,length = 50)
     private String Cargo;
-
-
+    
 	public Integer getId() {
 		return id;
 	}
@@ -63,10 +69,10 @@ public  class CadastroUsuario implements Serializable {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public String getEmail() {
+	public Character getEmail() {
 		return email;
 	}
-	public void setEmail(String email) {
+	public void setEmail(Character email) {
 		this.email = email;
 	}
 	public String getSetor() {
@@ -75,10 +81,10 @@ public  class CadastroUsuario implements Serializable {
 	public void setSetor(String setor) {
 		this.setor = setor;
 	}
-	public String getMatricula() {
+	public Character getMatricula() {
 		return matricula;
 	}
-	public void setMatricula(String matricula) {
+	public void setMatricula(Character matricula) {
 		this.matricula = matricula;
 	}
 	public Boolean getAcesso() {
@@ -99,11 +105,23 @@ public  class CadastroUsuario implements Serializable {
 	public void setRG(String rG) {
 		RG = rG;
 	}
-	public String getResidencia() {
-		return Residencia;
+	public String getEndereco() {
+		return endereco;
 	}
-	public void setResidencia(String residencia) {
-		Residencia = residencia;
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
+	}
+	public String getCidade() {
+		return cidade;
+	}
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
+	}
+	public Character getEstado() {
+		return estado;
+	}
+	public void setEstado(Character estado) {
+		this.estado = estado;
 	}
 	public String getCargo() {
 		return Cargo;
@@ -111,31 +129,11 @@ public  class CadastroUsuario implements Serializable {
 	public void setCargo(String cargo) {
 		Cargo = cargo;
 	}
-
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(Cargo, Cpf, Passaword, RG, Residencia, Username, acesso, email, id,
-				matricula, nome, setor);
-	}
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		CadastroUsuario other = (CadastroUsuario) obj;
-		return Objects.equals(Cargo, other.Cargo) && Objects.equals(Cpf, other.Cpf)
-				&& Objects.equals(Passaword, other.Passaword) && Objects.equals(RG, other.RG)
-				&& Objects.equals(Residencia, other.Residencia) && Objects.equals(Username, other.Username)
-				&& Objects.equals(id, other.id) && Objects.equals(matricula, other.matricula)
-				&& Objects.equals(nome, other.nome) && Objects.equals(setor, other.setor);
-	    }
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
     
     
-    
 
 
+}

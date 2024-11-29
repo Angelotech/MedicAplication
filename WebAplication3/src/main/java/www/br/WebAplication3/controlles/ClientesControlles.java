@@ -22,7 +22,7 @@ public class ClientesControlles {
     @Autowired
      ClientesRepository clientesRepository;
 
-    @PostMapping(value = "/salvaclientes")
+    @PostMapping(value = "/salvarclientes")
     @ResponseBody
     public ResponseEntity<CadastroClientes> salvar(@RequestBody CadastroClientes cadastroclientes){
     	CadastroClientes cadClientes = clientesRepository.save(cadastroclientes);
@@ -30,7 +30,7 @@ public class ClientesControlles {
     	
     }
 
-   @GetMapping(value = "/buscaclientes/nome")
+   @GetMapping(value = "/buscaclientesnome")
    @ResponseBody
    public ResponseEntity<List<CadastroClientes>> buscacliente(@RequestParam(name = "name")String name){
 	   List<CadastroClientes> clientes = clientesRepository.buscacliente(name.trim().toUpperCase());
@@ -38,7 +38,7 @@ public class ClientesControlles {
    }
    
    
-   @GetMapping(value = "/buscaclientes/RG")
+   @GetMapping(value = "/buscaclientesRG")
    @ResponseBody
    public ResponseEntity<List<CadastroClientes>> buscaRG(@RequestParam(name = "RG")String RG){
 	   List<CadastroClientes> clientes = clientesRepository.buscaRG(RG.trim().toUpperCase());
@@ -47,7 +47,7 @@ public class ClientesControlles {
 	   
    } 
    
-   @GetMapping(value = "/buscacliente/CPF")
+   @GetMapping(value = "/buscaclienteCPF")
    @ResponseBody
    public ResponseEntity<List<CadastroClientes>> buscaCpf(@RequestParam (name = "CPF")String Cpf){
 	   List<CadastroClientes> clientes = clientesRepository.buscaCpf(Cpf.trim().toUpperCase());
@@ -56,7 +56,7 @@ public class ClientesControlles {
    
    }
 
-   @PutMapping(value = "/atualizar/clientes/")
+   @PutMapping(value = "/atualizarclientes/")
     @ResponseBody
     public ResponseEntity<?> atualizar (@RequestBody CadastroClientes cadastroclientes) {
        if (cadastroclientes.getId() <= 0) {
@@ -68,6 +68,16 @@ public class ClientesControlles {
 
        }
    }
+   
+   @GetMapping(value = "/listclientes")
+   @ResponseBody
+   public ResponseEntity<List<CadastroClientes>> listaclientes(){
+	   List<CadastroClientes> clientes = clientesRepository.findAll();
+	   
+	   return new ResponseEntity<List<CadastroClientes>>(clientes,HttpStatus.OK);
+   }
+   
+   
    
    @DeleteMapping(value = "/deleteClientes")
    @ResponseBody
